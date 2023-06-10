@@ -17,7 +17,7 @@ namespace sdds
         LabelMaker::LabelMaker(int noOfLabels)
         {
             numberOfLabels = noOfLabels;
-            labels = new Label[noOfLabels];
+            labelsArr = new Label[noOfLabels];
         }
         void LabelMaker::readLabels()
         {
@@ -26,7 +26,7 @@ namespace sdds
             {
                 cout << "Enter label number " << i+1 << endl;
                 cout << "> ";
-                labels[i].readLabel();
+                labelsArr[i].readLabel();
             }
         }
         void LabelMaker::printLabels()
@@ -35,12 +35,12 @@ namespace sdds
             {
                 if (i != numberOfLabels-1)
                 {
-                    labels[i].printLabel();
+                    labelsArr[i].printLabel();
                     cout << endl;
                 }
                 else
                 {
-                    labels[i].printLabel() << endl;
+                    labelsArr[i].printLabel() << endl;
                 }
  
             }
@@ -50,7 +50,7 @@ namespace sdds
         {
            
             
-                delete[] labels;
+                delete[] labelsArr;
             
             
         }
