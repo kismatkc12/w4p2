@@ -15,7 +15,7 @@ namespace sdds
     class LabelMaker
     {
         int numberOfLabels;
-        Label* labels;
+        Label* labelsArr;
 public:
     LabelMaker(int noOfLabels);
     void readLabels();
