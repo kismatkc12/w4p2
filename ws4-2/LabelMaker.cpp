@@ -16,13 +16,13 @@ namespace sdds
 {
         LabelMaker::LabelMaker(int noOfLabels)
         {
-            m_noOfLabels = noOfLabels;
+            numberOfLabels = noOfLabels;
             labels = new Label[noOfLabels];
         }
         void LabelMaker::readLabels()
         {
-            cout << "Enter " << m_noOfLabels << " labels:" << endl;
-            for (int i = 0; i < m_noOfLabels; i++)
+            cout << "Enter " << numberOfLabels << " labels:" << endl;
+            for (int i = 0; i < numberOfLabels; i++)
             {
                 cout << "Enter label number " << i+1 << endl;
                 cout << "> ";
@@ -31,9 +31,9 @@ namespace sdds
         }
         void LabelMaker::printLabels()
         {
-            for (int i = 0; i < m_noOfLabels; i++)
+            for (int i = 0; i < numberOfLabels; i++)
             {
-                if (i != m_noOfLabels-1)
+                if (i != numberOfLabels-1)
                 {
                     labels[i].printLabel();
                     cout << endl;
