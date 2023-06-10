@@ -15,7 +15,7 @@ namespace sdds
 {
     class Label
     {
-        char* m_frame;
+        char* frame;
         char* m_content;
         int m_width;
         void setToDefault();
