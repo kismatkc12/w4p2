@@ -31,7 +31,7 @@ namespace sdds
     bool Label::isEmpty()const
     {
         bool val = true;
-        if (m_content != NULL && m_frame != NULL)
+        if (m_content != NULL && frame != NULL)
         {
             val = false;
         }
