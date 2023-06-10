@@ -27,12 +27,12 @@ namespace sdds
     }
     bool Label::isEmpty()const
     {
-        bool ret = true;
+        bool val = true;
         if (m_content != NULL && m_frame != NULL)
         {
-            ret = false;
+            val = false;
         }
-        return ret;
+        return val;
     }
   void Label::setName(const char * str)
   {
