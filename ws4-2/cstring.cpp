@@ -1,123 +1,87 @@
-/* Workshop 4 part 2
-Name : Inae Kim
-Seneca ID : 132329202
-Seneca email : ikim36@myseneca.ca
-Date : 2021/06/21
-Section : OOP244 NBB
+/*
+ *********
+ Workshop - #4 (P1)
+ Full Name  : kismat kc
+ Student ID#: 175036219
+ Email      : kk-c5@myseneca.ca
+ Date       : 2023/06/08
+ Authenticity Declaration:
+ I have done all the coding by myself and only copied the code that my professor
+ provided to complete my workshops and assignments.
+ *********
+ */
 
-*/
-// I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments. 
-#define _CRT_SECURE_NO_WARNINGS
-#include <iostream>
 #include "cstring.h"
-using namespace std;
+#include <iostream>
+
 namespace sdds {
-    // Copies the srouce character string into the destination
-    void strCpy(char* des, const char* src)
-    {
-        int count = 0;
-
-        while (src[count] != '\0')
-        {
-            des[count] = src[count];
-            count++;
-        }
-
-        des[count] = '\0';
-
-    }
-    // Copies the source character string into the destination upto "len"
-    // characters. The destination will be null terminated only if the number
-    // of the characters copied is less than "len"
-    void strnCpy(char* des, const char* src, int len)
-    {
-        int count;
-        for (count = 0; count < len; count++)
-        {
-            des[count] = src[count];
-
-        }
-        des[count] = '\0';
-    }
-    // Compares two C-strings 
-    // returns 0 i thare the same
-    // return > 0 if s1 > s2
-    // return < 0 if s1 < s2
-    int strCmp(const char* s1, const char* s2)
-    {
-        int count = 0;
-        while (s1[count] != '\0' && s2[count] != '\0' && s1[count] == s2[count])
-        {
-            count++;
-        }
-        return s1[count] - s2[count];
-    }
-    // returns 0 i thare the same
-    // return > 0 if s1 > s2
-    // return < 0 if s1 < s2
-    int strnCmp(const char* s1, const char* s2, int len)
-    {
-        int count = 0;
-
-        while (len == 0 || (s1[count] != '\0' && s2[count] != '\0' && s1[count] == s2[count]))
-        {
-            count++;
-            len--;
-        }
-        return s1[count] - s2[count];
-    }
-    // returns the lenght of the C-string in characters
-    int strLen(const char* s)
-    {
-        int count = 0;
-        while (s[count] != '\0')
-        {
-            count++;
-        }
-        return count;
-    }
-    // returns the address of first occurance of "str2" in "str1"
-    // returns nullptr if no match is found
-    const char* strStr(const char* str1, const char* str2)
-    {
-        int limit, i, j;
-        const char* ret = NULL;
-        limit = strLen(str1) - strLen(str2);
-
-        for (i = 0; i < limit; i++)
-        {
-            if (str1[i] == str2[0])
-            {
-                for (j = 1; j < strLen(str2); j++)
-                {
-                    if (str1[i + j] != str2[j])
-                    {
-                        break;
-                    }
-                }
-                if (j == strLen(str2))
-                {
-                    ret = (char*)(str1 + i);
-                }
-
-            }
-
-        }
-        return ret;
-
-    }
-    // Concantinates "src" C-string to the end of "des"
-    void strCat(char* des, const char* src)
-    {
-        int start = strLen(des);
-        int i;
-
-        for (i = 0; src[i] != '\0'; i++, start++)
-        {
-            des[start] = src[i];
-        }
-
-        des[start] = '\0';
-
-    }
+void strCpy(char *destination, const char *source) {
+  int i = 0;
+  while (source[i] != '\0') {
+    destination[i] = source[i];
+    i++;
+  }
+  destination[i] = '\0';
 }
+
+void strnCpy(char *des, const char *src, int len) {
+  int count;
+  for (count = 0; count < len; count++) {
+    des[count] = src[count];
+  }
+  des[count] = '\0';
+}
+
+int strCmp(const char *str1, const char *str2) {
+  int i = 0;
+  while (str1[i] == str2[i]) {
+    if (str1[i] == '\0')
+      return 0;
+    i++;
+  }
+  return str1[i] - str2[i];
+}
+
+int strnCmp(const char *str1, const char *str2, int length) {
+  int i = 0;
+  while (str1[i] == str2[i] && i < length) {
+    if (str1[i] == '\0')
+      return 0;
+    i++;
+  }
+  if (i == length)
+    return 0;
+  return str1[i] - str2[i];
+}
+
+int strLen(const char *str) {
+  int length = 0;
+  while (str[length] != '\0') {
+    length++;
+  }
+  return length;
+}
+
+const char *strStr(const char *str1, const char *str2) {
+  int i, j;
+  for (i = 0; str1[i] != '\0'; i++) {
+    for (j = 0; str2[j] != '\0'; j++) {
+      if (str1[i + j] != str2[j])
+        break;
+    }
+    if (str2[j] == '\0')
+      return &str1[i];
+  }
+  return nullptr;
+}
+
+void strCat(char *destination, const char *source) {
+  int length = strLen(destination);
+  int i = 0;
+  while (source[i] != '\0') {
+    destination[length + i] = source[i];
+    i++;
+  }
+  destination[length + i] = '\0';
+}
+} // namespace sdds
