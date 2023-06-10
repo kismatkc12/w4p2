@@ -22,7 +22,7 @@ namespace sdds
     {
         frame = NULL;
         m_content = NULL;
-        m_width = 0;
+        width = 0;
         char srcFrame[] = "+-+|+-+|";
         frame = new char[strLen(srcFrame) + 1];
         strCpy(frame, srcFrame);
