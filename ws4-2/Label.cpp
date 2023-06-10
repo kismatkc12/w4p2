@@ -17,12 +17,12 @@ namespace sdds
 
     void Label::setToDefault()
     {
-        m_frame = NULL;
+        frame = NULL;
         m_content = NULL;
         m_width = 0;
-        char frame[] = "+-+|+-+|";
-        m_frame = new char[strLen(frame) + 1];
-        strCpy(m_frame, frame);
+        char srcFrame[] = "+-+|+-+|";
+        frame = new char[strLen(srcFrame) + 1];
+        strCpy(frame, srcFrame);
 
     }
     bool Label::isEmpty()const
@@ -38,13 +38,13 @@ namespace sdds
   {
       if (str != NULL)
       {
-          delete[] m_frame;
-          m_frame = new char[strLen(str) + 1];
-          strCpy(m_frame, str);
+          delete[] frame;
+          frame = new char[strLen(str) + 1];
+          strCpy(frame, str);
       }
       else
       {
-          m_frame = NULL;
+          frame = NULL;
       }
   }
   void Label::setContent(const char* content)
@@ -69,7 +69,7 @@ namespace sdds
         setToDefault();
         if (frameArg != NULL)
         {
-            strCpy(m_frame, frameArg);
+            strCpy(frame, frameArg);
         }
         
         
@@ -77,7 +77,7 @@ namespace sdds
     Label::Label(const char* frameArg, const char* content)
     {
         setToDefault();
-        strCpy(m_frame, frameArg);
+        strCpy(frame, frameArg);
         if (strLen(content) < 70)
         {
             setContent(content);
@@ -92,7 +92,7 @@ namespace sdds
     Label::~Label()
     {
         delete[] m_content;
-        delete[] m_frame;
+        delete[] frame;
     }
     void Label::readLabel()
     {
@@ -109,34 +109,34 @@ namespace sdds
         {
   
            int  width  = strLen(m_content) + 3;
-            cout << m_frame[0];
+            cout << frame[0];
             cout.width(width);
-            cout.fill(m_frame[1]);
-            cout << m_frame[2] << endl;
+            cout.fill(frame[1]);
+            cout << frame[2] << endl;
             for (int i = 0; i < 3; i++)
             {
                 if (i == 1)
                 {
-                    cout << m_frame[3];
+                    cout << frame[3];
                     cout << " ";
                     cout <<  m_content;
                     cout << " ";
-                    cout << m_frame[7] << endl;
+                    cout << frame[7] << endl;
                     
                 }
                 else
                 {
-                    cout << m_frame[3];
+                    cout << frame[3];
                     cout.width(width);
                     cout.fill(' ');
-                    cout << m_frame[7] << endl;
+                    cout << frame[7] << endl;
                 }
           
             }
-            cout << m_frame[6];
+            cout << frame[6];
             cout.width(width);
-            cout.fill(m_frame[5]);
-            cout << m_frame[4];
+            cout.fill(frame[5]);
+            cout << frame[4];
            
            
         }
