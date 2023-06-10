@@ -19,7 +19,7 @@ namespace sdds
     {
         char* frame;
         char* m_content;
-        int m_width;
+        int width;
         void setToDefault();
         void setName(const char* str);
         void setContent(const char* content);
