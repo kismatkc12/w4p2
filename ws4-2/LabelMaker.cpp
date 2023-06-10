@@ -1,12 +1,15 @@
-/* Workshop 4 part 2
-Name : Inae Kim
-Seneca ID : 132329202
-Seneca email : ikim36@myseneca.ca
-Date : 2021/06/21
-Section : OOP244 NBB
-
-*/
-// I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments. 
+/*
+ *********
+ Workshop - #4 (P2)
+ Full Name  : kismat kc
+ Student ID#: 175036219
+ Email      : kk-c5@myseneca.ca
+ Date       : 2023/06/10
+ Authenticity Declaration:
+ I have done all the coding by myself and only copied the code that my professor
+ provided to complete my workshops and assignments.
+ *********
+ */
 
 #include <iostream>
 #include "Label.h"
